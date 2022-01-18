@@ -1,0 +1,62 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://resources/floor.tres" type="TileSet" id=1]
+[ext_resource path="res://resources/decoration.tres" type="TileSet" id=2]
+[ext_resource path="res://resources/floor_decoration.tres" type="TileSet" id=3]
+[ext_resource path="res://scenes/management/parallax_background.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/bunny/bunny.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/bunny/weapon.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/bug/orange_bug.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/bug/blue_bee.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/bug/yellow_bee.tscn" type="PackedScene" id=9]
+
+[node name="Level" type="Node2D"]
+
+[node name="ParallaxBackground" parent="." instance=ExtResource( 4 )]
+
+[node name="Tile" type="Node2D" parent="."]
+
+[node name="Floor" type="TileMap" parent="Tile"]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( 851968, 0, 0, 851969, 0, 1, 851970, 0, 1, 851971, 0, 1, 851972, 0, 1, 851973, 0, 1, 851974, 0, 1, 851975, 0, 1, 851976, 0, 2, 851986, 0, 0, 851987, 0, 1, 851988, 0, 1, 851989, 0, 1, 851990, 0, 1, 851991, 0, 1, 851992, 0, 1, 851993, 0, 1, 851994, 0, 1, 851995, 0, 1, 851996, 0, 2, 917504, 0, 65536, 917505, 0, 65537, 917506, 0, 65537, 917507, 0, 65537, 917508, 0, 65537, 917509, 0, 65537, 917510, 0, 65537, 917511, 0, 65537, 917512, 0, 65538, 917522, 0, 65536, 917523, 0, 65537, 917524, 0, 65537, 917525, 0, 65537, 917526, 0, 65537, 917527, 0, 65537, 917528, 0, 65537, 917529, 0, 65537, 917530, 0, 65537, 917531, 0, 65537, 917532, 0, 65538, 983040, 0, 131072, 983041, 0, 131073, 983042, 0, 131073, 983043, 0, 131073, 983044, 0, 131073, 983045, 0, 131073, 983046, 0, 131073, 983047, 0, 131073, 983048, 0, 131074, 983058, 0, 131072, 983059, 0, 131073, 983060, 0, 131073, 983061, 0, 131073, 983062, 0, 131073, 983063, 0, 131073, 983064, 0, 131073, 983065, 0, 131073, 983066, 0, 131073, 983067, 0, 131073, 983068, 0, 131074 )
+
+[node name="FloorDecoration" type="TileMap" parent="Tile"]
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 917505, 0, 0, 917525, 0, 0, 917531, 1, 0 )
+
+[node name="Decoration" type="TileMap" parent="Tile"]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 655367, 0, 65536, 720903, 0, 131074, 786437, 0, 0, 786439, 0, 196608, 786458, 0, 196611, 851970, 0, 0, 851990, 0, 131075, 851995, 0, 65537 )
+
+[node name="Bunny" parent="." instance=ExtResource( 5 )]
+position = Vector2( 77, 124 )
+attack_cooldown = 1.0
+invulnerability_time = 1.0
+speed = 90
+jump_speed = -180
+fall_speed = 360
+health = 5
+
+[node name="Weapon" parent="." instance=ExtResource( 6 )]
+position = Vector2( 216, 182 )
+
+[node name="Enemy" type="Node2D" parent="."]
+
+[node name="Bug" parent="Enemy" instance=ExtResource( 7 )]
+position = Vector2( 17, 200 )
+
+[node name="Bug2" parent="Enemy" instance=ExtResource( 7 )]
+position = Vector2( 349, 200 )
+
+[node name="BlueBee" parent="Enemy" instance=ExtResource( 8 )]
+position = Vector2( 216, 141 )
+
+[node name="YellowBee" parent="Enemy" instance=ExtResource( 9 )]
+position = Vector2( 0, 153 )
